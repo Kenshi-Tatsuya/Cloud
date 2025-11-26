@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Sign Language Recognition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="auth-page" class="page active">
+        <div class="auth-card">
+            <h1 class="project-title">SilentVoices AI</h1>
+
+            <div class="auth-tabs">
+                <button id="login-tab" class="auth-tab active-tab">Login</button>
+                <button id="register-tab" class="auth-tab">Register</button>
+            </div>
+
+            <form id="login-form" class="auth-form active-form">
+                <input type="text" id="login-username" placeholder="Username or Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" class="primary-btn">Login</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </form>
+
+            <form id="register-form" class="auth-form">
+                <input type="text" id="register-username" placeholder="Username or Email" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <input type="password" id="register-confirm-password" placeholder="Confirm Password" required>
+                <button type="submit" class="primary-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="home-page" class="page">
+        <nav class="navbar">
+            <div class="project-name-nav">SilentVoices AI</div>
+            <button id="logout-btn" class="secondary-btn">Logout</button>
+        </nav>
+
+        <main class="home-content">
+    <h2 class="main-headline">Real-time Tamil Sign Detection</h2>
+    <p class="prompt-text">Click the button below to start detection.</p>
+
+    <div class="camera-section">
+        <button id="start-detect-btn" class="primary-btn">Start Detection</button>
+
+        <div class="camera-box">
+            <video id="camera-feed" autoplay playsinline></video>
+        </div>
+    </div>
+
+    <div class="output-area">
+        <h3>Detected Tamil Text:</h3>
+        <div id="translation-output" class="output-box">
+            <p>No signs detected yet...</p>
+        </div>
+    </div>
+</main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

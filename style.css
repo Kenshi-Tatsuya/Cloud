@@ -1,0 +1,316 @@
+/* Global Reset and Typography */
+:root {
+    --color-black: #111111;
+    --color-white: #ffffff;
+    --color-gray-light: #f4f4f4;
+    --color-gray-medium: #cccccc;
+    --color-gray-dark: #666666;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-black);
+    background-color: var(--color-gray-light); /* Very light-gray background */
+    line-height: 1.6;
+}
+
+/* --- Utility Styles --- */
+.page {
+    min-height: 100vh;
+    width: 100%;
+    display: none;
+    transition: opacity var(--transition-speed) ease-in-out;
+    opacity: 0;
+}
+
+.page.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* --- Button Styling (Minimalistic) --- */
+.primary-btn, .secondary-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.1s;
+    font-size: 1rem;
+}
+
+/* Black button, white text */
+.primary-btn {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.primary-btn:hover {
+    background-color: var(--color-gray-dark);
+}
+
+.primary-btn:disabled {
+    background-color: var(--color-gray-medium);
+    cursor: not-allowed;
+}
+
+/* Outlined button, black text */
+.secondary-btn {
+    background-color: transparent;
+    color: var(--color-black);
+    border: 1px solid var(--color-black);
+}
+
+.secondary-btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* --- 1. Login / Register Page Styles --- */
+#auth-page {
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Light shadow */
+    text-align: center;
+}
+
+.project-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--color-black);
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--color-gray-medium);
+}
+
+.auth-tab {
+    flex-grow: 1;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    color: var(--color-gray-dark);
+    transition: color var(--transition-speed), border-bottom var(--transition-speed);
+}
+
+.auth-tab:hover {
+    color: var(--color-black);
+}
+
+.auth-tab.active-tab {
+    color: var(--color-black);
+    border-bottom: 3px solid var(--color-black);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity var(--transition-speed), height var(--transition-speed);
+}
+
+.auth-form.active-form {
+    opacity: 1;
+    height: auto; /* Adjusted by JS, or just set a max-height */
+    padding-top: 5px;
+}
+
+.auth-form input {
+    padding: 12px;
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+
+.auth-form input:focus {
+    border-color: var(--color-black);
+    outline: none;
+}
+
+.forgot-password {
+    font-size: 0.9rem;
+    color: var(--color-gray-dark);
+    text-decoration: none;
+    text-align: right;
+    margin-top: -5px;
+    transition: color var(--transition-speed);
+}
+
+.forgot-password:hover {
+    color: var(--color-black);
+}
+
+/* --- 2. Home Page Styles --- */
+#home-page {
+    flex-direction: column;
+    background-color: var(--color-white);
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--color-gray-light);
+    background-color: var(--color-white);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.project-name-nav {
+    font-size: 1.3rem;
+    font-weight: 700; /* Bold Black */
+    color: var(--color-black);
+}
+
+.home-content {
+    flex-grow: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.main-headline {
+    font-size: 2.48rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.prompt-text {
+    font-size: 1.1rem;
+    color: var(--color-gray-dark);
+    margin-bottom: 40px;
+}
+
+/* Video Upload Section */
+.upload-section {
+    background-color: var(--color-gray-light);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.drop-area {
+    border: 2px dashed var(--color-gray-dark);
+    background-color: var(--color-white);
+    padding: 50px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    transition: border-color var(--transition-speed);
+}
+
+.drop-area:hover {
+    border-color: var(--color-black);
+}
+
+.drop-area p {
+    color: var(--color-gray-dark);
+    margin-bottom: 15px;
+}
+
+.file-status {
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--color-black);
+    min-height: 1.2rem; /* Reserve space */
+}
+
+/* Output Area */
+.output-area {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.output-area h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--color-gray-light);
+    padding-bottom: 5px;
+}
+
+.output-box {
+    min-height: 100px;
+    background-color: var(--color-gray-light);
+    border: 1px solid var(--color-gray-medium);
+    padding: 20px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .main-headline {
+        font-size: 1.8rem;
+    }
+
+    .auth-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .project-name-nav {
+        font-size: 1.1rem;
+    }
+}
+
+.camera-section {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.camera-box {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 640px;
+    height: 480px;
+    background: black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+#camera-feed {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
